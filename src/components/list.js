@@ -1,14 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { SettingsContext } from '../context/context ';
 
-function List(props) {
+export default function List(props) {
 
   const settingsContext = useContext(SettingsContext);
   const [currentItems, setCurrentItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState(Math.ceil(props.list.length / settingsContext.perPage));
-
-
 
   useEffect(() => {
     let start = (currentPage - 1) * settingsContext.perPage;
@@ -38,11 +36,11 @@ function List(props) {
     setCurrentPage(num);
   }
 
-  function next() {
+  function completed() {
     settingsContext.setshowCompleted(!settingsContext.showCompleted);
   }
 
-  const pages = () => {
+  const navigate  = () => {
     let page = [];
     for (let i = 1; i <= numOfPages; i++) {
       page.push(<button onClick={() => { changeCurrentPage(i) }} key={i}>{i}</button>)
@@ -52,7 +50,7 @@ function List(props) {
 
   return (
     <div>
-      <button onClick={next} >View Completed: </button>
+      <button onClick={completed} >View Completed: </button>
       {currentItems.map(item => (
         <div key={item.id}>
           <p>{item.text}</p>
@@ -63,11 +61,8 @@ function List(props) {
         </div>
       ))}
       {currentPage > 1 && <button onClick={() => { setCurrentPage(currentPage - 1) }}>Previous</button>}
-      {pages()}
+      {navigate()}
       {currentPage < numOfPages && <button onClick={() => { setCurrentPage(currentPage + 1) }} >Next</button>}
-
     </div>
   )
 }
-
-export default List
