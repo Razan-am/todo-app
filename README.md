@@ -22,10 +22,10 @@
 ### Author: Razan Alamleh
 
 ### Code Sandbox
-- [Sandbox - phase2](https://codesandbox.io/s/currying-frog-9ml5y)
+- [Sandbox - phase2](https://codesandbox.io/s/clever-engelbart-vt3xz)
 
 ### Pull request
-[PR](https://github.com/Razan-am/RESTy-API/pull/1)
+[PR](https://github.com/Razan-am/todo-app/pull/2)
 
 ### Running the app
 - npm start
